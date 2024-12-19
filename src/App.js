@@ -82,36 +82,6 @@ const App = () => {
     localStorage.setItem('darkMode', darkMode);
   }, [darkMode]);
 
-  // Solicitar permiso para notificaciones
-  useEffect(() => {
-    if (!("Notification" in window)) {
-      console.log("Este navegador no soporta notificaciones.");
-    } else if (Notification.permission !== "granted") {
-      Notification.requestPermission();
-    }
-  }, []);
-
-  // Notificación cuando el tiempo está a punto de terminar
-  useEffect(() => {
-    if (timeLeft === 60) {
-      showNotification("¡Casi terminamos!", "Queda 1 minuto para completar la sesión.");
-    }
-  }, [timeLeft]);
-
-  // Notificación cuando cambia de sesión
-  useEffect(() => {
-    if (timeLeft === 0) {
-      const sessionType = isSession ? "Trabajo" : "Descanso";
-      showNotification("Cambio de sesión", `¡Comienza la sesión de ${sessionType}!`);
-    }
-  }, [timeLeft, isSession]);
-
-  const showNotification = (title, body) => {
-    if (Notification.permission === "granted") {
-      new Notification(title, { body });
-    }
-  };
-
   // Actualizar el tiempo restante cuando cambien las longitudes de sesión o descanso
   useEffect(() => {
     setTimeLeft(isSession ? sessionLength * 60 : breakLength * 60);
@@ -125,9 +95,9 @@ const App = () => {
         setTimeLeft((prevTime) => {
           if (prevTime === 0) {
             audioRef.current.play();
-            setIsSession((prevSession) => !prevSession);
+            setIsSession((prevSession) => !prevSession); // Cambiar de sesión a descanso o viceversa
             playSoundOnSessionEnd(); // Reproducir sonido al finalizar sesión o descanso
-            return isSession ? breakLength * 60 : sessionLength * 60;
+            return isSession ? breakLength * 60 : sessionLength * 60; // Reiniciar el tiempo
           }
           return prevTime - 1;
         });
@@ -185,14 +155,24 @@ const App = () => {
     return `${minutes}:${seconds}`;
   };
 
-  // Calcular el progreso de la barra
-  const totalTime = isSession ? sessionLength * 60 : breakLength * 60;
-  const progress = ((totalTime - timeLeft) / totalTime) * 100;
+  // Calcular el progreso de las barras
+  const totalSessionTime = sessionLength * 60;
+  const totalBreakTime = breakLength * 60;
+
+  // Progreso de la sesión
+  const sessionProgress = isSession
+    ? ((totalSessionTime - timeLeft) / totalSessionTime) * 100
+    : 100; // Si no está en sesión, la barra de sesión está llena
+
+  // Progreso del descanso
+  const breakProgress = !isSession
+    ? ((totalBreakTime - timeLeft) / totalBreakTime) * 100
+    : 0; // Si no está en descanso, la barra de descanso está vacía
 
   return (
     <div className={darkMode ? 'dark-mode' : 'light-mode'}>
       <button className="toggle-theme" onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? 'Modo Claro' : 'Modo Oscuro'}
+        {darkMode ? 'Light Theme' : 'Dark Theme'}
       </button>
 
       {/* Portada */}
@@ -231,10 +211,16 @@ const App = () => {
             </div>
           </div>
 
-          {/* Barra de progreso */}
+          {/* Barra de progreso para la sesión */}
           <div className="progress-bar-container">
-            <div className="progress-bar" style={{ width: `${progress}%` }}></div>
-            <div className="progress-bar-text">{formatTime(timeLeft)}</div>
+            <div className="progress-bar progress-bar-session" style={{ width: `${sessionProgress}%` }}></div>
+            <div className="progress-bar-text">{isSession ? formatTime(timeLeft) : "Sesión completada"}</div>
+          </div>
+
+          {/* Barra de progreso para el descanso */}
+          <div className="progress-bar-container">
+            <div className="progress-bar progress-bar-break" style={{ width: `${breakProgress}%` }}></div>
+            <div className="progress-bar-text">{!isSession ? formatTime(timeLeft) : "Descanso pendiente"}</div>
           </div>
 
           <div className="buttons">

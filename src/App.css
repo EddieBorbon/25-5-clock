@@ -235,8 +235,15 @@ audio {
 
 .progress-bar {
   height: 100%;
-  background: linear-gradient(90deg, #00ffcc, #00ccff);
   transition: width 1s linear;
+}
+
+.progress-bar-session {
+  background: linear-gradient(90deg, #00ffcc, #00ccff); /* Color para la sesión */
+}
+
+.progress-bar-break {
+  background: linear-gradient(90deg, #ff00cc, #cc00ff); /* Color para el descanso */
 }
 
 .progress-bar-text {
