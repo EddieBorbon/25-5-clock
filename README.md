@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+# ⏰ 25 + 5 Clock
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+¡Bienvenido al **25 + 5 Clock**! 🎉 Este proyecto es una aplicación de temporizador basada en el concepto de sesiones de enfoque de 25 minutos seguidas de descansos de 5 minutos, comúnmente conocido como **Técnica Pomodoro**. 🍅
 
-## Available Scripts
+## 🚀 Características
 
-In the project directory, you can run:
+- **⏳ Temporizador Personalizable**: Ajusta la duración de las sesiones y los descansos según tus necesidades.
+- **🌙 Modo Oscuro y Claro**: Cambia fácilmente entre temas para una experiencia visual óptima.
+- **🎵 Efectos de Sonido**: Disfruta de sonidos únicos al iniciar, pausar, completar sesiones o descansos.
+- **📊 Barras de Progreso**: Visualiza el progreso tanto en sesiones como en descansos.
+- **🛑 Diálogos de Confirmación**: Asegúrate de tus acciones con ventanas emergentes de confirmación para detener, saltar o descartar cambios.
 
-### `npm start`
+## 🛠️ Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React** ⚛️
+- **CSS** 🎨
+- **HTML** 🌐
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🎮 Cómo Usar
 
-### `npm test`
+1. **Inicia la Aplicación**:
+   - Abre la portada haciendo clic en el botón "Open". 📖
+2. **Configura los Temporizadores**:
+   - Ajusta la duración de las sesiones y descansos utilizando los botones `+` y `-`. 🔧
+3. **Comienza y Detén el Temporizador**:
+   - Usa el botón `Start`/`Pause` para controlar el temporizador. ▶️⏸️
+4. **Reinicia el Temporizador**:
+   - Haz clic en `Reset` para volver a los valores predeterminados. 🔄
+5. **Cambia el Tema**:
+   - Alterna entre el tema claro y oscuro con el botón de cambio de tema. 🌞🌙
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🎼 Efectos de Sonido
 
-### `npm run build`
+- **Botón Clic**: Al iniciar o pausar.
+- **Final de Sesión**: Cuando una sesión o descanso termina.
+- **Reiniciar**: Al reiniciar el temporizador.
+- **Diálogo Emergente**: Cuando interactúas con ventanas de confirmación.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🖼️ Interfaz
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Portada
+![Portada](./screenshots/cover.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Temporizador
+![Temporizador](./screenshots/timer.png)
 
-### `npm run eject`
+## 👩‍💻 Instalación y Uso Local
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. Clona este repositorio:
+git clone https://github.com/tu-usuario/25-5-clock.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+css
+Copy code
+2. Navega al directorio del proyecto:
+cd 25-5-clock
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+markdown
+Copy code
+3. Instala las dependencias:
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+markdown
+Copy code
+4. Inicia la aplicación localmente:
+npm start
 
-## Learn More
+markdown
+Copy code
+5. Accede a la aplicación en tu navegador en `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🤝 Contribuciones
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+¡Las contribuciones son bienvenidas! Si encuentras un problema o tienes ideas para mejorar la aplicación, abre un **issue** o envía un **pull request**.
 
-### Code Splitting
+## 📜 Licencia
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Este proyecto está bajo la licencia MIT. Consulta el archivo `LICENSE` para
