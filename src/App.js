@@ -214,13 +214,13 @@ const App = () => {
           {/* Barra de progreso para la sesión */}
           <div className="progress-bar-container">
             <div className="progress-bar progress-bar-session" style={{ width: `${sessionProgress}%` }}></div>
-            <div className="progress-bar-text">{isSession ? formatTime(timeLeft) : "Sesión completada"}</div>
+            <div className="progress-bar-text">{isSession ? formatTime(timeLeft) : "Session Completed"}</div>
           </div>
 
           {/* Barra de progreso para el descanso */}
           <div className="progress-bar-container">
             <div className="progress-bar progress-bar-break" style={{ width: `${breakProgress}%` }}></div>
-            <div className="progress-bar-text">{!isSession ? formatTime(timeLeft) : "Descanso pendiente"}</div>
+            <div className="progress-bar-text">{!isSession ? formatTime(timeLeft) : "Break"}</div>
           </div>
 
           <div className="buttons">
